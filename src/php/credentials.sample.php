@@ -1,3 +1,0 @@
-<?php
-
-$secret = 'your-secret';

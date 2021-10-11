@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
-const sites = ['index.html', 'contact.html', 'legal.html', 'imprint.html', 'arrival.html', 'rooms.html']
+const sites = ['index.html']
 
 htmlPlugins = sites.map(site => {
     return new HtmlWebpackPlugin({
