@@ -1,0 +1,155 @@
+@import 'utilities';
+
+.header{
+    &__bar{
+        color: #000000;
+        position:fixed;
+        width: 100%;
+        z-index: 1;
+        top: 0;
+        box-shadow: 0 1px 5px $primaryColor;
+        transition: all 0.5s ease-in-out;
+        background-color: #ffffff;
+
+        @media screen and (max-width: 800px){
+            display: block;
+        }
+
+        &--scroll-top {
+            height: 100px;
+        }
+
+        &--scroll {
+            height: 120px;
+
+            @media screen and (max-width: 800px){
+                height: 100px;
+            }
+        }
+
+        &--maxwidth {
+            max-width: $maxWidth;
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+            height: 100%;
+        }
+    }
+
+    h1{
+        font-size: 14pt;
+        padding-left: 2rem;
+        margin: auto 0;
+        @media screen and (max-width: 800px){
+            width: 85%;
+        }
+        @media screen and (max-width: 420px){
+            font-size: 10pt;
+            white-space: nowrap;
+        }
+    }
+
+
+    &__logo{
+        background-image: url("../images/logo.png");
+        font-size: 3em;
+        text-decoration: none;
+        color: $primaryColor;
+    }
+    &__nav{
+        padding: 1em;
+        align-self: center;
+
+        &-toggle-input{
+            display: none;
+        }
+        &-toggle-label{
+            display: none;
+        }
+
+        @media screen and (max-width: 800px){
+            padding-right: 0;
+        }
+
+    }
+
+    &__list{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        list-style: none;
+        flex-wrap:wrap;
+        @media screen and (max-width: 800px){
+            flex-direction: column;
+        }
+
+        & li {
+            padding: 0 2em 0 2em;
+
+            @media screen and (max-width: 1000px){
+                padding: 0 1em 0 1em;
+            }
+        }
+    }
+
+    &__link{
+        color: $secondaryColor;
+        text-decoration: none;
+        font-weight: 300;
+        font-size: $smallSize;
+        text-transform: uppercase;
+        transition: color 0.3s ease-in-out;
+        //source: https://stackoverflow.com/questions/28623446/hover-effect-expand-bottom-border
+        &:after{
+            display:block;
+            content: '';
+            border-bottom: solid 2px $primaryColor;
+            transform: scaleX(0);
+            transition: transform 0.2s ease-in-out;
+
+            @media screen and (max-width: 800px){
+                border-bottom: solid 2px #ffffff;
+            }
+        }
+        &:hover{
+            color: $primaryColor;
+            &:after{
+                transform: scaleX(1);
+                @media screen and (max-width: 800px){
+                    transform: scaleX(0.2);
+                }
+            }
+            @media screen and (max-width: 800px){
+                color: #ffffff;
+            }
+
+        }
+        &--current{
+            color: $primaryColor;
+            &:after{
+                transform: scaleX(1);
+                @media screen and (max-width: 800px){
+                    transform: scaleX(0.2);
+                }
+            }
+        }
+        @media screen and (max-width: 800px){
+            font-size: $mediumSize;
+            padding: 1em 0 1em;
+        }
+    }
+}
+@-moz-document url-prefix() {
+    .header__hero__container__p{
+        line-height: 1.2em;
+    }
+}
+
+@media screen and (min-width: 800px){
+    #menuToggle input{
+        display: none;
+    }
+    #menuToggle span{
+        display: none;
+    }
+}

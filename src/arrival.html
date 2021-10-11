@@ -1,0 +1,36 @@
+<%= require('html-loader!./partials/_header.html') %>
+</header>
+<main>
+    <section class="hero hero--arrival"></section>
+    <div class="hero__spacer"></div>
+    <section class="max-width-container content">
+        <section class="content__50-50">
+            <div class="content__50-50--item">
+                <h2>
+                    Anreise
+                </h2>
+                <p>
+                    Bei Anreise mit der Bahn, holen wir Sie gerne vom Bahnhof Bad Hofgastein ab.
+                </p>
+                <p>
+                    Vom Groyerhof aus sind Sie 5 Gehminuten von der Bushaltestelle Kreuzbichl entfernt, von wo aus Sie mit dem kostenlosen Skibus in circa 10 Fahrminuten im Skizentrum Angertal sind.
+                </p>
+            </div>
+            <div class="content__50-50--item">
+                <a href="./images/groyerhof.jpg" class="glightbox" data-gallery="gallery3">
+                    <img src="./images/groyerhof.jpg" class="content__image" alt="haus">
+                </a>
+            </div>
+        </section>
+        <section class="content__100">
+            <div class="content__100--item">
+                <div id="leaflet" class="map"></div>
+            </div>
+        </section>
+    </section>
+</main>
+<script>
+    // add css-class to current link
+    document.getElementsByClassName("header__link")[1].classList.add("header__link--current");
+</script>
+<%= require('html-loader!./partials/_footer.html') %>

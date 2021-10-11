@@ -1,0 +1,156 @@
+@import 'utilities';
+
+main {
+  background-color: #ffffff;
+}
+
+.hero{
+    top: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    position: fixed;
+    width: 100vw;
+    z-index: -3;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding-left: 53%;
+
+    &--arrival{
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../images/haus1.jpg");
+    }
+
+    &--home{
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../images/gastein.jpg");
+        background-position: 50% 100%;
+    }
+
+    &__spacer {
+        margin-top: 50vh;
+    }
+
+    @media screen and (max-width: 420px){
+        margin-top: 55px;
+    }
+
+    @media screen and (max-width: 1070px){
+        padding-left: 0;
+        align-items: flex-end;
+
+        &__container{
+            padding: 0 2%;
+        }
+    }
+}
+
+.form {
+    padding-top: 6em;
+    padding-bottom: calc(6em + 64px);
+    &__button {
+        background-color: $primaryColor !important;
+
+        &:hover {
+            background-color: $primaryColor--light !important;
+        }
+
+        &--light {
+            background-color: $contrastColor !important;
+
+            &:hover {
+                background-color: $contrastColor--light !important;
+            }
+        }
+    }
+
+    @media screen and (max-width: 800px){
+        padding-top: 2em;
+    }
+
+    &__alert {
+        position: absolute;
+        width: calc(100% - 64px);
+        max-width: calc(1200px - 64px);
+        cursor: pointer;
+    }
+
+    &__error {
+        background-color: #feecf0;
+    }
+}
+
+.content {
+    padding-top: 6em !important;
+    word-break: break-word;
+    &__50-50 {
+        display: flex;
+        width: 100%;
+        padding-top: 1em;
+        justify-content: space-between;
+
+        &--item {
+            flex-basis: calc(50% - 1em);
+            padding-bottom: 1em;
+            overflow: hidden;
+
+            &:hover .content__image {
+                transform: translate3d(0,0,0);
+                transition: all 0.3s ease-in-out;
+                filter: brightness(50%);
+            }
+        }
+
+        @media screen and (max-width: 800px){
+            flex-direction: column;
+        }
+    }
+
+    &__100 {
+        padding-top: 1em;
+        display: flex;
+        justify-content: flex-start;
+
+        &--item {
+            flex-basis: 100%;
+            padding-bottom: 1em;
+        }
+    }
+
+    &__spacer {
+        padding-bottom: 10em;
+    }
+
+    &__handwrite {
+        font-family: $myFontHandwrite;
+        text-transform: none;
+
+        &--large {
+            font-size: $extraLargeSize;
+        }
+
+        &--medium {
+            font-size: $largeSize;
+        }
+    }
+
+    &__image {
+        width: calc(100% + 30px);
+        max-width: calc(100% + 30px);
+        transition: all 0.3s ease-in-out;
+        transform: translate3d(-30px,0,0);
+    }
+
+    @media screen and (max-width: 800px){
+        padding-top: 2em !important;
+    }
+}
+
+.map {
+    height: 50vh;
+    font-family: $myFont;
+    z-index: 0;
+}
+
+.grecaptcha-badge {
+    z-index: 99;
+}

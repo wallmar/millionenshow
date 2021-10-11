@@ -1,0 +1,45 @@
+@import 'utilities';
+
+.footer{
+    background-color: #ffffff;
+    padding: 0;
+    &__flex{
+        display: flex;
+        justify-content: space-around;
+        @media screen and (max-width: 700px){
+            &{
+                display: block;
+            }
+        }
+        &__section{
+            flex: 1;
+            &__link{
+                cursor: pointer;
+                &:hover{
+                    color: #ffffff;
+                    transition: 0.2s;
+                }
+            }
+        }
+        &__p{
+            margin: 1.5em 0;
+            line-height: 1.5em;
+            text-align: center;
+        }
+    }
+    &__credits{
+        text-align: center;
+    }
+
+    &__container {
+        clip-path: polygon(0 20%, 100% 0, 100% 100%, 0% 100%);
+        background-color: $secondaryColor;
+        color: #ffffff;
+        padding: 8em 1em 5em 1em;
+        font-size: $smallSize;
+    }
+
+    &__important {
+        font-weight: bold;
+    }
+}

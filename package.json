@@ -1,0 +1,42 @@
+{
+  "name": "cms",
+  "version": "1.0.0",
+  "description": "* [W3C Validator](https://validator.w3.org/#validate_by_upload)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.js --mode=production",
+    "start": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wallmar/groyerhof.git"
+  },
+  "author": "Markus Wallner",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wallmar/groyerhof/issues"
+  },
+  "homepage": "https://github.com/wallmar/groyerhof#readme",
+  "devDependencies": {
+    "css-loader": "^3.2.0",
+    "favicons-webpack-plugin": "^4.2.0",
+    "file-loader": "^4.2.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": ">= 4",
+    "image-webpack-loader": "^6.0.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "sass": "^1.29.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "babel-loader": "^8.2.1",
+    "bulma": "^0.9.1"
+  }
+}
