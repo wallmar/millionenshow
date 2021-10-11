@@ -1,5 +1,22 @@
 <%= require('html-loader!./partials/_header.html') %>
 <main>
-    test
+    <audio id="audio" src="audio/1000000_question.mp3" autoplay loop></audio>
+    <section class="container">
+        <div class="box box__question">
+            Welche Fußballnation konnte bei den bisherigen 19 Weltmeisterschaften die den Titel im eigenen Land gewinnen?
+        </div>
+        <div class="box box__answer">
+            <span class="box__option">A:</span> Something weird
+        </div>
+        <div class="box box__answer box--selected">
+            <span class="box__option box__option--selected">B:</span> Something nice
+        </div>
+        <div class="box box__answer">
+            <span class="box__option">C:</span> Something exciting
+        </div>
+        <div class="box box__answer box--correct">
+            <span class="box__option box__option--correct">D:</span> Some slightly awkward things
+        </div>
+    </section>
 </main>
 <%= require('html-loader!./partials/_footer.html') %>

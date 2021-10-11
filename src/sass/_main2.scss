@@ -1,1 +1,69 @@
 @import 'utilities';
+
+.container {
+  position: absolute;
+  top: 55vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2fr 1fr 1fr;
+  padding: 3rem;
+  grid-gap: 30px;
+  justify-items: center;
+  filter: drop-shadow(1px 0px 1px rgb(126,137,226))
+  drop-shadow(-1px 0px 0px rgb(126,137,226))
+  drop-shadow(0px 1px 0px rgb(126,137,226))
+  drop-shadow(0px -1px 0px rgb(126,137,226))
+  drop-shadow(1px 1px 0px rgb(126,137,226))
+  drop-shadow(-1px -1px 0px rgb(126,137,226))
+  drop-shadow(-1px 1px 0px rgb(126,137,226))
+  drop-shadow(1px -1px 0px rgb(126,137,226));
+}
+
+.box {
+  padding: 0 2rem 0 2rem;
+  background: rgb(28,43,168);
+  background: radial-gradient(circle, rgba(13,20,110,1) 25%, rgba(5,15,60,1) 50%, rgba(3,8,54,1) 75%);
+  clip-path: polygon(5% 0%, 95% 0%, 100% 50%, 95% 100%, 5% 100%, 0% 50%);
+  z-index: 2;
+  color: #fff;
+
+  &__question {
+    grid-column: 1 / span 2;
+    text-align: center;
+    width: 1900px;
+    height: 140px;
+    line-height: 140px;
+  }
+
+  &__answer {
+    width: 920px;
+    height: 70px;
+    line-height: 70px;
+
+    &:hover {
+      filter: brightness(170%);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+  }
+
+  &--selected {
+    background: rgb(241,128,0);
+    background: linear-gradient(89deg, rgba(241,128,0,1) 0%, rgba(244,156,0,1) 100%);
+    color: #111;
+  }
+
+  &--correct {
+    background: rgb(44,202,39);
+    color: #111;
+  }
+
+  &__option {
+    color: rgb(254,139,21);
+
+    &--selected, &--correct {
+      color: #111;
+    }
+  }
+}

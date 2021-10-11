@@ -35,12 +35,21 @@ module.exports = {
                 },"css-loader", "sass-loader",],
             },
             {
-                test: /\.(png|jp(e*)g|svg)$/,
+                test: /\.(png|jp(e*)g|svg|webp)$/,
                 use: [{
                     loader: 'file-loader',
                     options: {
                         limit: 8000, // Convert images < 8kb to base64 strings
                         name: 'images/[name].[ext]'
+                    }
+                }]
+            },
+            {
+                test: /\.(mp3)$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: 'audio/[name].[ext]'
                     }
                 }]
             },

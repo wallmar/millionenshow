@@ -36,7 +36,6 @@
   "dependencies": {
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
-    "babel-loader": "^8.2.1",
-    "bulma": "^0.9.1"
+    "babel-loader": "^8.2.1"
   }
 }
