@@ -74,6 +74,12 @@ export default class Game {
                 }, 2000)
             }
         })
+        /* TODO
+        letzte frage (z.B. Hauptstadt von Ö) - richtige Antwort lässt sich nicht anklicken (bewegt sich immer weg)
+        davor ca. 30 sekunden mit Countdown (ohne Container mit Frage) - und Bild von z.B. Malediven
+        Moderator präsentiert in dieser Zeit den Hauptgewinn (z.B. Urlaub auf Malediven)
+        fake-Gutschein ausdrucken und präsentieren
+         */
 
         if (this.getCurrentRound().answers[key].correct) {
             this.audioManager.playCorrect()
