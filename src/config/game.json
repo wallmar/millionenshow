@@ -1,0 +1,69 @@
+[
+  {
+    "question": "Was ist die Hauptstadt von Österreich?",
+    "audioLevel": 0,
+    "answers": [
+      {
+        "text": "Graz",
+        "correct": false
+      },
+      {
+        "text": "Wien",
+        "correct": true
+      },
+      {
+        "text": "Grazer Innenstadt",
+        "correct": false
+      },
+      {
+        "text": "Tirol",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "question": "Was findet man meistens an Goldschmuck?",
+    "audioLevel": 2,
+    "answers": [
+      {
+        "text": "Stempel",
+        "correct": true
+      },
+      {
+        "text": "Radiergummi",
+        "correct": false
+      },
+      {
+        "text": "Spitzer",
+        "correct": false
+      },
+      {
+        "text": "Locher",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "question": "Wo muss man hinreisen, um Syrakus, die Geburtsstadt von Archimedes, zu besichtigen?",
+    "audioLevel": 5,
+    "answers": [
+      {
+        "text": "Cres",
+        "correct": false
+      },
+      {
+        "text": "Djerba",
+        "correct": false
+      },
+      {
+        "text": "Kreta",
+        "correct": false
+      },
+      {
+        "text": "Sizilien",
+        "correct": true
+      }
+    ]
+  }
+]
+

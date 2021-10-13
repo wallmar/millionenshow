@@ -2,7 +2,7 @@
 
 .container {
   position: absolute;
-  top: 55vh;
+  top: 50vh;
   width: 100vw;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -18,6 +18,11 @@
   drop-shadow(-1px -1px 0px rgb(126,137,226))
   drop-shadow(-1px 1px 0px rgb(126,137,226))
   drop-shadow(1px -1px 0px rgb(126,137,226));
+  transition: all 1s ease-in-out;
+
+  &--faded {
+    opacity: 0;
+  }
 }
 
 .box {
@@ -27,6 +32,15 @@
   clip-path: polygon(5% 0%, 95% 0%, 100% 50%, 95% 100%, 5% 100%, 0% 50%);
   z-index: 2;
   color: #fff;
+  user-select: none;
+
+  &--unselected {
+
+    &:hover {
+      filter: brightness(170%);
+      transition: all 0.3s ease;
+    }
+  }
 
   &__question {
     grid-column: 1 / span 2;
@@ -42,8 +56,6 @@
     line-height: 70px;
 
     &:hover {
-      filter: brightness(170%);
-      transition: all 0.3s ease;
       cursor: pointer;
     }
   }
@@ -60,10 +72,7 @@
   }
 
   &__option {
-    color: rgb(254,139,21);
-
-    &--selected, &--correct {
-      color: #111;
-    }
+    color: rgba(244,156,0,1);
+    text-shadow: black 3px 3px 5px;
   }
 }
