@@ -83,6 +83,8 @@ export default class Game {
         50-50-Joker: jede answer hat einfach definiert (bool), ob sie bei 50-50 verschwinden würde
 
         Publikumsjoker: Popup (mit kurzer Ladedauer (mit  countdown)), wo angezeigt wird, dass alle 4 Fragen jeweils 25 % haben
+
+        custom cursor (evtl. cursor none und mit JS cursor Position lösen), damit man besser zusehen kann (vor allem bei letzter frage)
          */
 
         if (this.getCurrentRound().answers[key].correct) {
