@@ -34,7 +34,7 @@ export default class Game {
         setTimeout(() => this.updateRanking(), 2000)
 
         const answerNodes = document.querySelectorAll('.box__answer')
-        document.querySelectorAll('.box__question')[0].innerHTML = this.getCurrentRound().question
+        document.querySelectorAll('.box__question__text')[0].innerHTML = this.getCurrentRound().question
 
         this.audioManager.setAudioLevel(this.getCurrentRound().audioLevel)
         this.audioManager.playIntro()
@@ -105,7 +105,7 @@ export default class Game {
 
     cleanup() {
         const answerNodes = document.querySelectorAll('.box__answer')
-        document.querySelectorAll('.box__question')[0].innerHTML = ''
+        document.querySelectorAll('.box__question__text')[0].innerHTML = ''
         document.querySelectorAll('.container')[0].classList.add('container--faded')
         this.selectedAnswer = null
         this.currentRound++

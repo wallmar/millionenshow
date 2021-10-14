@@ -26,26 +26,26 @@
     ]
   },
   {
-    "question": "Was findet man meistens an Goldschmuck?",
+    "question": "Wenn ein Dieb pro Sekunde eine Kombination schafft, braucht ein Dieb zum Öffnen eines Zahlenschlosses mit vierstelligem Code maximal…?",
     "audioLevel": 2,
     "answers": [
       {
-        "text": "Stempel",
-        "correct": true,
-        "disappears": false
-      },
-      {
-        "text": "Radiergummi",
+        "text": "etwa 300 Sekunden",
         "correct": false,
         "disappears": true
       },
       {
-        "text": "Spitzer",
+        "text": "knapp 170 Minuten",
+        "correct": true,
+        "disappears": false
+      },
+      {
+        "text": "gut fünf Stunden",
         "correct": false,
         "disappears": false
       },
       {
-        "text": "Locher",
+        "text": "rund einen halben Tag",
         "correct": false,
         "disappears": true
       }
