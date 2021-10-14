@@ -5,18 +5,33 @@
         <div class="box box__question">
             Welche Fußballnation konnte bei den bisherigen 19 Weltmeisterschaften die den Titel im eigenen Land gewinnen?
         </div>
-        <div class="box box__answer box--unselected">
-            <span class="box__option">A:</span> <span class="box__option__text"></span>
+        <div class="box box__answer box--unselected box__answer--left">
+            <span class="box__option">A:&nbsp;</span> <span class="box__option__text"></span>
         </div>
-        <div class="box box__answer box--unselected">
-            <span class="box__option">B:</span> <span class="box__option__text"></span>
+        <div class="box box__answer box--unselected box__answer--right">
+            <span class="box__option">B:&nbsp;</span> <span class="box__option__text"></span>
         </div>
-        <div class="box box__answer box--unselected">
-            <span class="box__option">C:</span> <span class="box__option__text"></span>
+        <div class="box box__answer box--unselected box__answer--left">
+            <span class="box__option">C:&nbsp;</span> <span class="box__option__text"></span>
         </div>
-        <div class="box box__answer box--unselected">
-            <span class="box__option">D:</span> <span class="box__option__text"></span>
+        <div class="box box__answer box--unselected box__answer--right">
+            <span class="box__option">D:&nbsp;</span> <span class="box__option__text"></span>
         </div>
     </section>
+    <aside class="joker">
+        <div class="joker__entry">
+            <img class="joker__image" data-joker="50-50" src="./src/images/joker_50-50.png"/>
+        </div>
+        <div class="joker__entry">
+            <img class="joker__image" data-joker="audience" src="./src/images/joker_audience.png"/>
+        </div>
+    </aside>
+    <aside class="ranking">
+        <div class="ranking__entry">1 &nbsp;&nbsp;&bull;&nbsp; € 1.000</div>
+        <div class="ranking__entry">2 &nbsp;&bull;&nbsp; € 16.000</div>
+        <div class="ranking__entry">3 &nbsp;&bull;&nbsp; € 64.000</div>
+        <div class="ranking__entry">4 &nbsp;&bull;&nbsp; € 500.000</div>
+        <div class="ranking__entry">5 &nbsp;&bull;&nbsp; € 1 Million</div>
+    </aside>
 </main>
 <%= require('html-loader!./partials/_footer.html') %>

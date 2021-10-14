@@ -6,9 +6,11 @@ export default class AudioManager {
         this.event = new Event('audioFinished')
     }
 
-    setAudioSrc(src, loop = false) {
+    setAudioSrc(src, loop = false, ignoreAudioLevel = false) {
+        const audioLevel = ignoreAudioLevel ? '' : this.audioLevel + '_'
+
         // e.g. audio/3_basic.mp3
-        this.audioNode.setAttribute('src', this.audioPath + this.audioLevel + '_' + src)
+        this.audioNode.setAttribute('src', this.audioPath + audioLevel + src)
 
         if (loop) {
             this.audioNode.setAttribute('loop', 'true')
@@ -50,6 +52,13 @@ export default class AudioManager {
         this.setAudioSrc('failure.mp3')
         this.audioNode.onended = () => {
             document.dispatchEvent(this.event)
+        }
+    }
+
+    play5050JokerUsed() {
+        this.setAudioSrc('50-50.mp3', false, true)
+        this.audioNode.onended = () => {
+            this.playBasic()
         }
     }
 }

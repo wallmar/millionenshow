@@ -5,19 +5,23 @@
     "answers": [
       {
         "text": "Graz",
-        "correct": false
+        "correct": false,
+        "disappears": false
       },
       {
         "text": "Wien",
-        "correct": true
+        "correct": true,
+        "disappears": false
       },
       {
         "text": "Grazer Innenstadt",
-        "correct": false
+        "correct": false,
+        "disappears": true
       },
       {
         "text": "Tirol",
-        "correct": false
+        "correct": false,
+        "disappears": true
       }
     ]
   },
@@ -27,41 +31,49 @@
     "answers": [
       {
         "text": "Stempel",
-        "correct": true
+        "correct": true,
+        "disappears": false
       },
       {
         "text": "Radiergummi",
-        "correct": false
+        "correct": false,
+        "disappears": true
       },
       {
         "text": "Spitzer",
-        "correct": false
+        "correct": false,
+        "disappears": false
       },
       {
         "text": "Locher",
-        "correct": false
+        "correct": false,
+        "disappears": true
       }
     ]
   },
   {
-    "question": "Wo muss man hinreisen, um Syrakus, die Geburtsstadt von Archimedes, zu besichtigen?",
+    "question": "Seit jeher haben die meisten ...?",
     "audioLevel": 5,
     "answers": [
       {
-        "text": "Cres",
-        "correct": false
+        "text": "Dober Männer",
+        "correct": false,
+        "disappears": true
       },
       {
-        "text": "Djerba",
-        "correct": false
+        "text": "Cocker Spaniels",
+        "correct": false,
+        "disappears": true
       },
       {
-        "text": "Kreta",
-        "correct": false
+        "text": "Schäfer Hunde",
+        "correct": true,
+        "disappears": false
       },
       {
-        "text": "Sizilien",
-        "correct": true
+        "text": "Riesen Schnauzer",
+        "correct": false,
+        "disappears": false
       }
     ]
   }
