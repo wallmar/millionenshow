@@ -79,6 +79,10 @@ export default class Game {
         davor ca. 30 sekunden mit Countdown (ohne Container mit Frage) - und Bild von z.B. Malediven
         Moderator präsentiert in dieser Zeit den Hauptgewinn (z.B. Urlaub auf Malediven)
         fake-Gutschein ausdrucken und präsentieren
+
+        50-50-Joker: jede answer hat einfach definiert (bool), ob sie bei 50-50 verschwinden würde
+
+        Publikumsjoker: Popup (mit kurzer Ladedauer (mit  countdown)), wo angezeigt wird, dass alle 4 Fragen jeweils 25 % haben
          */
 
         if (this.getCurrentRound().answers[key].correct) {
