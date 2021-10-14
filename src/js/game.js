@@ -85,6 +85,9 @@ export default class Game {
         Publikumsjoker: Popup (mit kurzer Ladedauer (mit  countdown)), wo angezeigt wird, dass alle 4 Fragen jeweils 25 % haben
 
         custom cursor (evtl. cursor none und mit JS cursor Position lösen), damit man besser zusehen kann (vor allem bei letzter frage)
+
+        wenn Zeit: simples Backend bauen, um als Moderator übers eigene Handy Pausen zu managen (zum Geschenke verteilen)
+        einfach Button mit Text (nächste Frage) -> Frontend schickt alle 1s Request ans Backend, um zu checken, ob es weitermachen darf
          */
 
         if (this.getCurrentRound().answers[key].correct) {
