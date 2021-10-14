@@ -86,8 +86,7 @@ export default class Game {
 
         custom cursor (evtl. cursor none und mit JS cursor Position lösen), damit man besser zusehen kann (vor allem bei letzter frage)
 
-        wenn Zeit: simples Backend bauen, um als Moderator übers eigene Handy Pausen zu managen (zum Geschenke verteilen)
-        einfach Button mit Text (nächste Frage) -> Frontend schickt alle 1s Request ans Backend, um zu checken, ob es weitermachen darf
+        nach jeder Frage einfach ein Button "nächste Frage"
          */
 
         if (this.getCurrentRound().answers[key].correct) {
