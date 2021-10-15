@@ -2,7 +2,7 @@
 
 .container {
   position: absolute;
-  top: 60vh;
+  top: 50vh;
   width: 100vw;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -108,7 +108,7 @@
   background-size: cover;
   background-position: center;
   color: #fff;
-  top: 100px;
+  top: 50px;
   right: 200px;
   user-select: none;
   border-radius: 30px;
@@ -138,7 +138,7 @@
   background-size: cover;
   background-position: center;
   color: #fff;
-  top: 100px;
+  top: 50px;
   left: 200px;
   display: flex;
   flex-direction: column;

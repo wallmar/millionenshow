@@ -9,15 +9,17 @@ export default class AudioManager {
     setAudioSrc(src, loop = false, ignoreAudioLevel = false) {
         const audioLevel = ignoreAudioLevel ? '' : this.audioLevel + '_'
 
-        // e.g. audio/3_basic.mp3
-        this.audioNode.setAttribute('src', this.audioPath + audioLevel + src)
+        setTimeout(() => {
+            // e.g. audio/3_basic.mp3
+            this.audioNode.setAttribute('src', this.audioPath + audioLevel + src)
 
-        if (loop) {
-            this.audioNode.setAttribute('loop', 'true')
-        }
-        else {
-            this.audioNode.removeAttribute('loop')
-        }
+            if (loop) {
+                this.audioNode.setAttribute('loop', 'true')
+            }
+            else {
+                this.audioNode.removeAttribute('loop')
+            }
+        }, 500)
 
         //audio.volume = 0.5
     }
