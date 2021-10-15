@@ -20,10 +20,10 @@
     </section>
     <aside class="joker">
         <div class="joker__entry">
-            <img class="joker__image" data-joker="50-50" src="./src/images/joker_50-50.png"/>
+            <img class="joker__image" data-joker="50-50" src="./images/joker_50-50.png"/>
         </div>
         <div class="joker__entry">
-            <img class="joker__image" data-joker="audience" src="./src/images/joker_audience.png"/>
+            <img class="joker__image" data-joker="audience" src="./images/joker_audience.png"/>
         </div>
     </aside>
     <aside class="ranking">
@@ -32,6 +32,9 @@
         <div class="ranking__entry">3 &nbsp;&bull;&nbsp; € 64.000</div>
         <div class="ranking__entry">4 &nbsp;&bull;&nbsp; € 500.000</div>
         <div class="ranking__entry">5 &nbsp;&bull;&nbsp; € 1 Million</div>
+    </aside>
+    <aside class="audience audience--disabled">
+        <canvas id="audienceGraph" class="audience__graph--disabled" width="400" height="400"></canvas>
     </aside>
 </main>
 <%= require('html-loader!./partials/_footer.html') %>

@@ -1,4 +1,5 @@
 import AudioManager from "./audioManager";
+import Loader from '../js/loader'
 
 export default class Game {
     constructor(gameConfig) {
@@ -107,6 +108,7 @@ export default class Game {
         const answerNodes = document.querySelectorAll('.box__answer')
         document.querySelectorAll('.box__question__text')[0].innerHTML = ''
         document.querySelectorAll('.container')[0].classList.add('container--faded')
+        document.querySelectorAll('.audience')[0].classList.add('audience--disabled')
         this.selectedAnswer = null
         this.currentRound++
 
@@ -143,6 +145,19 @@ export default class Game {
         this.audioManager.play5050JokerUsed()
     }
 
+    handleAudienceJoker() {
+        const audienceGraph = document.querySelectorAll('.audience')[0]
+        audienceGraph.classList.remove('audience--disabled')
+
+        this.audioManager.playAudienceJokerUsed()
+        Loader.open()
+
+        document.addEventListener('jokerAudioFinished', () => {
+            audienceGraph.querySelectorAll('#audienceGraph')[0].classList.remove('audience__graph--disabled')
+            Loader.close()
+        })
+    }
+
     registerJokers() {
         const jokers = document.querySelectorAll('.joker__image')
 
@@ -158,7 +173,12 @@ export default class Game {
                 })
             }
             else if (jokerType === 'audience') {
-                // todo handle audienceJoker (display graph)
+                joker.addEventListener('click', () => {
+                    if (!joker.classList.contains('joker__image--inactive')) {
+                        this.handleAudienceJoker()
+                        joker.classList.add('joker__image--inactive')
+                    }
+                })
             }
         })
     }

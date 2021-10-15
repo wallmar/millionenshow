@@ -4,6 +4,7 @@ export default class AudioManager {
         this.audioPath = 'audio/'
         this.audioLevel = 0
         this.event = new Event('audioFinished')
+        this.jokerEvent = new Event('jokerAudioFinished')
     }
 
     setAudioSrc(src, loop = false, ignoreAudioLevel = false) {
@@ -59,6 +60,21 @@ export default class AudioManager {
         this.setAudioSrc('50-50.mp3', false, true)
         this.audioNode.onended = () => {
             this.playBasic()
+        }
+    }
+
+    playAudienceJokerUsed() {
+        this.setAudioSrc('audience.mp3', false, true)
+        setInterval(() => {
+            const timeRanges = this.audioNode.played
+
+            if (timeRanges.end(0) > 32) {
+                document.dispatchEvent(this.jokerEvent)
+            }
+        }, 100)
+
+        this.audioNode.onended = () => {
+            setTimeout(() => this.playBasic(), 4000)
         }
     }
 }
