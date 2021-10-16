@@ -31,6 +31,35 @@ export default class Game {
         return rightAnswerNode
     }
 
+    getOffset(el) {
+        const rect = el.getBoundingClientRect();
+        return {
+            left: ((rect.left + window.scrollX) + (rect.right + window.scrollX)) / 2,
+            top: ((rect.top + window.scrollY) + (rect.bottom + window.scrollY)) / 2
+        };
+    }
+
+    lastQuestionAction(e) {
+        let mouseX = e.pageX
+        let mouseY = e.pageY
+
+        const node = this.getRightAnswerNode()
+        let nodeX = this.getOffset(node).left
+        let nodeY = this.getOffset(node).top
+
+        let diffX = Math.abs(mouseX - nodeX)
+        let diffY = Math.abs(mouseY - nodeY)
+
+        let diff = Math.sqrt(Math.pow(diffX, 2) + Math.pow(diffY, 2))
+
+        if (diff < 250) {
+            //this.getRightAnswerNode().style.transform = `translate(10px, 10px)`
+        }
+        else {
+            //this.getRightAnswerNode().style.transform = `translate(0px, 0px)`
+        }
+    }
+
     round() {
         setTimeout(() => this.updateRanking(), 2000)
 
@@ -39,6 +68,11 @@ export default class Game {
 
         this.audioManager.setAudioLevel(this.getCurrentRound().audioLevel)
         this.audioManager.playIntro()
+
+        // last question
+        if (this.currentRound === this.gameConfig.length - 1 || true) {
+            document.onmousemove = ((e) => this.lastQuestionAction(e))
+        }
 
         answerNodes.forEach((answerNode, key) => {
             const answer = this.getCurrentRound().answers[key]
