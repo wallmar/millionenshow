@@ -1,4 +1,5 @@
 import AudioManager from "./audioManager";
+import MouseAvoiderPro from "./mouseAvoiderPro";
 import Loader from '../js/loader'
 
 export default class Game {
@@ -11,6 +12,7 @@ export default class Game {
         this.currentRank = 0
         this.updateRanking()
         this.registerJokers()
+        this.mouseAvoider = new MouseAvoiderPro()
     }
 
     /**
@@ -31,33 +33,8 @@ export default class Game {
         return rightAnswerNode
     }
 
-    getOffset(el) {
-        const rect = el.getBoundingClientRect();
-        return {
-            left: ((rect.left + window.scrollX) + (rect.right + window.scrollX)) / 2,
-            top: ((rect.top + window.scrollY) + (rect.bottom + window.scrollY)) / 2
-        };
-    }
-
-    lastQuestionAction(e) {
-        let mouseX = e.pageX
-        let mouseY = e.pageY
-
-        const node = this.getRightAnswerNode()
-        let nodeX = this.getOffset(node).left
-        let nodeY = this.getOffset(node).top
-
-        let diffX = Math.abs(mouseX - nodeX)
-        let diffY = Math.abs(mouseY - nodeY)
-
-        let diff = Math.sqrt(Math.pow(diffX, 2) + Math.pow(diffY, 2))
-
-        if (diff < 250) {
-            //this.getRightAnswerNode().style.transform = `translate(10px, 10px)`
-        }
-        else {
-            //this.getRightAnswerNode().style.transform = `translate(0px, 0px)`
-        }
+    isLastRound() {
+        return this.currentRound === this.gameConfig.length - 1
     }
 
     round() {
@@ -70,8 +47,8 @@ export default class Game {
         this.audioManager.playIntro()
 
         // last question
-        if (this.currentRound === this.gameConfig.length - 1 || true) {
-            document.onmousemove = ((e) => this.lastQuestionAction(e))
+        if (this.isLastRound()) {
+            document.onmousemove = ((e) => this.mouseAvoider.perform(e, this.getRightAnswerNode()))
         }
 
         answerNodes.forEach((answerNode, key) => {
@@ -81,13 +58,16 @@ export default class Game {
 
             const onClickHandler = () => {
                 if (!this.selectedAnswer && !answerNode.classList.contains('box--disabled')) {
-                    answerNode.classList.add('box--selected')
-                    answerNode.classList.remove('box--unselected')
-                    this.selectedAnswer = answer
 
-                    this.audioManager.playSelected()
+                    if (!this.isLastRound() || answerNode !== this.getRightAnswerNode()) {
+                        answerNode.classList.add('box--selected')
+                        answerNode.classList.remove('box--unselected')
+                        this.selectedAnswer = answer
 
-                    setTimeout(() => {this.checkAnswer(key)}, this.countDown)
+                        this.audioManager.playSelected()
+
+                        setTimeout(() => {this.checkAnswer(key)}, this.countDown)
+                    }
                 }
             }
 
@@ -120,13 +100,12 @@ export default class Game {
         Moderator präsentiert in dieser Zeit den Hauptgewinn (z.B. Urlaub auf Malediven)
         fake-Gutschein ausdrucken und präsentieren
 
-        50-50-Joker: jede answer hat einfach definiert (bool), ob sie bei 50-50 verschwinden würde
-
-        Publikumsjoker: Popup (mit kurzer Ladedauer (mit  countdown)), wo angezeigt wird, dass alle 4 Fragen jeweils 25 % haben
-
-        custom cursor (evtl. cursor none und mit JS cursor Position lösen), damit man besser zusehen kann (vor allem bei letzter frage)
+        korrekte Antwort von letzter Frage soll rechts unten sein, und Antwort der vorherigen korrekten frage (einfach)
+        diagonal davon links oben (damit man nicht versehentlich hover auslöst)
 
         nach jeder Frage einfach ein Button "nächste Frage"
+
+        bug beheben, wo musik bei erster runde nicht startet
          */
 
         if (this.getCurrentRound().answers[key].correct) {
@@ -172,7 +151,6 @@ export default class Game {
             if (answer.disappears) {
                 const answerNode = document.querySelectorAll('.box__answer')[key]
                 answerNode.getElementsByClassName('box__option__text')[0].innerHTML = ''
-                answerNode.removeEventListener('click', this.onClickHandler)
                 answerNode.classList.add('box--disabled')
             }
         })

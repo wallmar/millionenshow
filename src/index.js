@@ -2,7 +2,7 @@ import './sass/style.scss'
 import gameConfig from './config/game.json'
 import Game from './js/game'
 
-require.context('./images', true, /\.(jpg|webp|png)$/);
+require.context('./images', true, /\.(jpg|webp|png|cur)$/);
 require.context('./audio', true, /\.(mp3)$/);
 
 import Chart from 'chart.js/auto';

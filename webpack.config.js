@@ -35,7 +35,7 @@ module.exports = {
                 },"css-loader", "sass-loader",],
             },
             {
-                test: /\.(png|jp(e*)g|svg|webp)$/,
+                test: /\.(png|jp(e*)g|svg|webp|cur)$/,
                 use: [{
                     loader: 'file-loader',
                     options: {

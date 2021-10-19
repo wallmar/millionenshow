@@ -30,14 +30,14 @@
     "audioLevel": 2,
     "answers": [
       {
-        "text": "etwa 300 Sekunden",
-        "correct": false,
-        "disappears": true
-      },
-      {
         "text": "knapp 170 Minuten",
         "correct": true,
         "disappears": false
+      },
+      {
+        "text": "etwa 300 Sekunden",
+        "correct": false,
+        "disappears": true
       },
       {
         "text": "gut fünf Stunden",
@@ -66,13 +66,13 @@
         "disappears": true
       },
       {
-        "text": "Schäfer Hunde",
-        "correct": true,
+        "text": "Riesen Schnauzer",
+        "correct": false,
         "disappears": false
       },
       {
-        "text": "Riesen Schnauzer",
-        "correct": false,
+        "text": "Schäfer Hunde",
+        "correct": true,
         "disappears": false
       }
     ]
