@@ -1,7 +1,6 @@
 [
   {
     "question": "Wie heißt die Serie?",
-    "audioLevel": 0,
     "answers": [
       {
         "text": "Die Geissens",
@@ -27,7 +26,6 @@
   },
   {
     "question": "500 Schilling sind ...",
-    "audioLevel": 1,
     "answers": [
       {
         "text": "42,31 USD",
@@ -53,7 +51,6 @@
   },
   {
     "question": "Die Kastristn befindet sich auf ... über dem Meeresspiegel",
-    "audioLevel": 1,
     "answers": [
       {
         "text": "8850 m",
@@ -79,7 +76,6 @@
   },
   {
     "question": "Welche Farbe hat eine handelsübliche Orange in Österreich?",
-    "audioLevel": 2,
     "answers": [
       {
         "text": "Krapporange",
@@ -105,7 +101,6 @@
   },
   {
     "question": "Wie viele Federn schmücken das Federkleid eines solchen Spatzens (vor der Mauser)?",
-    "audioLevel": 3,
     "answers": [
       {
         "text": "rund 3200",
@@ -131,7 +126,6 @@
   },
   {
     "question": "Some People got the real problem, some people out of luck, some people think I can solve them, Lord heavens above…",
-    "audioLevel": 3,
     "answers": [
       {
         "text": "RAF Camora – 500PS",
@@ -157,7 +151,6 @@
   },
   {
     "question": "Wenn ein Dieb pro Sekunde eine Kombination schafft, braucht ein Dieb zum Öffnen eines Zahlenschlosses mit vierstelligem Code maximal…?",
-    "audioLevel": 4,
     "answers": [
       {
         "text": "knapp 170 Minuten",
@@ -183,7 +176,6 @@
   },
   {
     "question": "Seit jeher haben die meisten ...?",
-    "audioLevel": 5,
     "answers": [
       {
         "text": "Dober Männer",
@@ -209,7 +201,6 @@
   },
   {
     "question": "Was ist KEIN Nachbarstaat von Österreich?",
-    "audioLevel": 5,
     "answers": [
       {
         "text": "Slowenien",
@@ -235,7 +226,6 @@
   },
   {
     "question": "Was ist die Hauptstadt von Österreich?",
-    "audioLevel": 5,
     "answers": [
       {
         "text": "Wien",
@@ -261,7 +251,6 @@
   },
   {
     "question": "Welches dieser Täler liegt NICHT in Tirol?",
-    "audioLevel": 5,
     "answers": [
       {
         "text": "Zillertal",

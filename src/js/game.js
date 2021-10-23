@@ -30,13 +30,17 @@ export default class Game {
     }
 
     /**
-     * @return {{question: string, audioLevel: number, answers:[{text:string,correct:bool,disappears:bool}]}}
+     * @return {{question: string, answers:[{text:string,correct:bool,disappears:bool}]}}
      */
     getCurrentRound() {
         if (this.isLastRound()) {
             return this.gameConfig[this.gameConfig.length - 1]
         }
         return this.gameConfig[this.currentRound]
+    }
+
+    getCurrentAudioLevel() {
+        return this.currentRank
     }
 
     getRightAnswerNode(avoidKey = 0) {
@@ -61,7 +65,7 @@ export default class Game {
     }
 
     showQuestion() {
-        this.audioManager.setAudioLevel(this.getCurrentRound().audioLevel)
+        this.audioManager.setAudioLevel(this.getCurrentAudioLevel())
         this.audioManager.playIntro()
         document.querySelectorAll('.box__question__text')[0].innerHTML = this.getCurrentRound().question
         document.removeEventListener('keyup', this.clickListenerBind)
