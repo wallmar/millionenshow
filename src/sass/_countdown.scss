@@ -1,0 +1,25 @@
+@import 'utilities';
+
+.countdown {
+  position: absolute;
+  user-select: none;
+  font-size: 40px;
+  width: 120px;
+  height: 120px;
+  line-height: 80px;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  top: 80px;
+  left: calc(50vw - 120px);
+  background-image: url("../images/background.webp");
+  padding: 1rem;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  transition: 1s;
+
+  &--disabled {
+    opacity: 0;
+  }
+}

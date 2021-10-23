@@ -1,0 +1,46 @@
+@import 'utilities';
+
+.joker {
+  position: absolute;
+  font-size: 24px;
+  width: 300px;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  top: 40px;
+  left: 200px;
+  display: flex;
+  flex-direction: column;
+
+  &__entry {
+    padding-bottom: 1rem;
+  }
+
+  &__image {
+    height: 60px;
+    -webkit-user-drag: none;
+    user-select: none;
+
+    &:hover {
+      cursor: url('../images/oth554.cur'), auto;
+      filter: brightness(170%);
+    }
+
+    &--inactive {
+      filter: brightness(20%);
+
+      &:hover {
+        cursor: inherit;
+        filter: brightness(20%) !important;
+      }
+    }
+
+    &--disabled {
+
+      &:hover {
+        cursor: inherit;
+        filter: brightness(100%);
+      }
+    }
+  }
+}

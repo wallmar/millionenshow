@@ -1,0 +1,28 @@
+@import 'utilities';
+
+.audience {
+  position: absolute;
+  font-size: 24px;
+  width: 300px;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  top: 20px;
+  left: calc(50vw - 150px);
+  background-image: url("../images/background.webp");
+  padding: 1rem;
+  border-radius: 30px;
+  border: 2px solid #fff;
+  transition: 1s;
+
+  &--disabled {
+    opacity: 0;
+  }
+
+  &__graph {
+
+    &--disabled {
+      opacity: 0 !important;
+    }
+  }
+}
