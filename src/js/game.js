@@ -15,6 +15,7 @@ export default class Game {
         this.mouseAvoider = new MouseAvoiderPro()
         this.clickListenerBind = null
         this.cleanedUp = false
+        this.isOver = false
     }
 
     init() {
@@ -139,7 +140,7 @@ export default class Game {
         document.addEventListener('audioFinished', () => {
             clearInterval(interval)
 
-            if (this.gameConfig.length > this.currentRound + 1) {
+            if (!this.isOver) {
                 this.cleanup()
                 setTimeout(() => {
                     if (!this.cleanedUp) {
@@ -151,19 +152,6 @@ export default class Game {
                 }, 2000)
             }
         })
-        /* TODO
-        letzte frage (z.B. Hauptstadt von Ö) - richtige Antwort lässt sich nicht anklicken (bewegt sich immer weg)
-        davor ca. 30 sekunden mit Countdown (ohne Container mit Frage) - und Bild von z.B. Malediven
-        Moderator präsentiert in dieser Zeit den Hauptgewinn (z.B. Urlaub auf Malediven)
-        fake-Gutschein ausdrucken und präsentieren
-
-        korrekte Antwort von letzter Frage soll rechts unten sein, und Antwort der vorherigen korrekten frage (einfach)
-        diagonal davon links oben (damit man nicht versehentlich hover auslöst)
-
-        nach jeder Frage einfach ein Button "nächste Frage"
-
-        bug beheben, wo musik bei erster runde nicht startet
-         */
 
         if (rightAnswerNode.getElementsByClassName('box__option__text')[0].innerHTML === this.getCurrentRound().answers[key].text
             && !forceWrong) {
@@ -172,6 +160,10 @@ export default class Game {
         }
         else {
             this.audioManager.playFailure()
+
+            if (this.isLastRound()) {
+                this.isOver = true
+            }
         }
     }
 
