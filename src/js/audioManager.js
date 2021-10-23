@@ -5,6 +5,9 @@ export default class AudioManager {
         this.audioLevel = 0
         this.event = new Event('audioFinished')
         this.jokerEvent = new Event('jokerAudioFinished')
+        this.countdownEvent = new Event('countdownFinished')
+        this.countdown = 30
+        this.intervalId = 0
     }
 
     setAudioSrc(src, loop = false, ignoreAudioLevel = false) {
@@ -40,6 +43,7 @@ export default class AudioManager {
 
     playSelected() {
         this.setAudioSrc('selected.mp3')
+        clearInterval(this.intervalId)
     }
 
     playCorrect() {
@@ -76,5 +80,32 @@ export default class AudioManager {
         this.audioNode.onended = () => {
             setTimeout(() => this.playBasic(), 4000)
         }
+    }
+
+    startCountdown() {
+        this.setAudioSrc('countdown.mp3', false, true)
+
+        const node = document.querySelectorAll('.countdown')[0]
+        let started = false
+        setInterval(() => {
+            const timeRanges = this.audioNode.played
+
+            if (timeRanges.end(0) > 3 && !started) {
+                started = true
+                node.innerHTML = this.countdown.toString()
+                node.classList.remove('countdown--disabled')
+                this.intervalId = setInterval(() => {
+                    if (this.countdown === 0) {
+                        clearInterval(this.intervalId)
+                        node.classList.add('countdown--disabled')
+                        document.dispatchEvent(this.countdownEvent)
+                    }
+                    else {
+                        this.countdown --
+                        node.innerHTML = this.countdown.toString()
+                    }
+                }, 1000)
+            }
+        }, 100)
     }
 }

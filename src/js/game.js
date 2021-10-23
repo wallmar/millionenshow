@@ -43,12 +43,22 @@ export default class Game {
         const answerNodes = document.querySelectorAll('.box__answer')
         document.querySelectorAll('.box__question__text')[0].innerHTML = this.getCurrentRound().question
 
-        this.audioManager.setAudioLevel(this.getCurrentRound().audioLevel)
-        this.audioManager.playIntro()
-
         // last question
         if (this.isLastRound()) {
+            this.audioManager.startCountdown()
+            this.disableJokers()
+
+            document.addEventListener('countdownFinished', () => {
+                this.mouseAvoider.reset(this.getRightAnswerNode())
+                this.checkAnswer(1, true)
+                this.selectedAnswer = 1
+            })
+
             document.onmousemove = ((e) => this.mouseAvoider.perform(e, this.getRightAnswerNode()))
+        }
+        else {
+            this.audioManager.setAudioLevel(this.getCurrentRound().audioLevel)
+            this.audioManager.playIntro()
         }
 
         answerNodes.forEach((answerNode, key) => {
@@ -65,6 +75,9 @@ export default class Game {
                         this.selectedAnswer = answer
 
                         this.audioManager.playSelected()
+                        if (this.isLastRound()) {
+                            this.mouseAvoider.reset(this.getRightAnswerNode())
+                        }
 
                         setTimeout(() => {this.checkAnswer(key)}, this.countDown)
                     }
@@ -75,7 +88,7 @@ export default class Game {
         })
     }
 
-    checkAnswer(key) {
+    checkAnswer(key, forceWrong = false) {
         const rightAnswerNode = this.getRightAnswerNode()
 
         const interval = setInterval(() => {
@@ -108,7 +121,7 @@ export default class Game {
         bug beheben, wo musik bei erster runde nicht startet
          */
 
-        if (this.getCurrentRound().answers[key].correct) {
+        if (this.getCurrentRound().answers[key].correct && !forceWrong) {
             this.audioManager.playCorrect()
             this.currentRank++;
         }
@@ -192,6 +205,15 @@ export default class Game {
                     }
                 })
             }
+        })
+    }
+
+    disableJokers() {
+        const jokers = document.querySelectorAll('.joker__image')
+
+        jokers.forEach(joker => {
+            joker.classList.add('joker__image--inactive')
+            joker.classList.add('joker__image--inactive')
         })
     }
 }

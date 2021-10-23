@@ -5,13 +5,21 @@ export default class MouseAvoiderPro {
         this.padding = 40
         this.maxTranslate = 30
         this.firstTime = true
+        this.endPerform = false
     }
 
     perform(mouseEvent, node) {
+        if (this.endPerform) {
+            return
+        }
+
         const offset = this.getOffset(node)
 
         if (this.firstTime) {
             node.addEventListener('mouseover', () => {
+                if (this.endPerform) {
+                    return
+                }
                 this.addedX -= (offset.bottomY - offset.topY + this.padding)
 
                 node.style.transform = `translate(${this.addedX}px, ${this.addedY}px)`
@@ -73,5 +81,13 @@ export default class MouseAvoiderPro {
             rightX: (rect.right + window.scrollX) - (0.2 * lengthX) + this.padding,
             bottomY: (rect.bottom + window.scrollY) + (this.padding * 2)
         };
+    }
+
+    reset(node) {
+        this.endPerform = true
+        this.addedX = 0
+        this.addedY = 0
+        node.classList.remove('box__answer--last')
+        node.style.transform = `translate(${this.addedX}px, ${this.addedY}px)`
     }
 }
