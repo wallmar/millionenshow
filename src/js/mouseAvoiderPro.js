@@ -2,15 +2,26 @@ export default class MouseAvoiderPro {
     constructor() {
         this.addedX = 0
         this.addedY = 0
-        this.padding = 30
-        this.maxTranslate = 20
+        this.padding = 40
+        this.maxTranslate = 30
+        this.firstTime = true
     }
 
     perform(mouseEvent, node) {
+        const offset = this.getOffset(node)
+
+        if (this.firstTime) {
+            node.addEventListener('mouseover', () => {
+                this.addedX -= (offset.bottomY - offset.topY + this.padding)
+
+                node.style.transform = `translate(${this.addedX}px, ${this.addedY}px)`
+
+                this.checkBounds(node)
+            })
+        }
+        this.firstTime = false
         let mouseX = mouseEvent.pageX
         let mouseY = mouseEvent.pageY
-
-        const offset = this.getOffset(node)
 
         // if mouse XY between both x-values AND both y-values -> within rect
         if (
@@ -21,12 +32,19 @@ export default class MouseAvoiderPro {
             this.addedX += this.transformValueFromPercentage((mouseX - offset.leftX) / (offset.rightX - offset.leftX))
             this.addedY += this.transformValueFromPercentage((mouseY - offset.topY) / (offset.bottomY - offset.topY))
 
-            if (this.valuesOutOfBounds([offset.leftX, offset.rightX], window.innerWidth) ||
-                this.valuesOutOfBounds([offset.topY, offset.bottomY], window.innerHeight)) {
-                this.addedX = 0
-                this.addedY = 0
-                node.classList.remove('box__answer--last')
-            }
+            node.style.transform = `translate(${this.addedX}px, ${this.addedY}px)`
+        }
+
+        this.checkBounds(node)
+    }
+
+    checkBounds(node) {
+        const offset = this.getOffset(node)
+        if (this.valuesOutOfBounds([offset.leftX, offset.rightX], window.innerWidth) ||
+            this.valuesOutOfBounds([offset.topY, offset.bottomY], window.innerHeight)) {
+            this.addedX = 0
+            this.addedY = 0
+            node.classList.remove('box__answer--last')
 
             node.style.transform = `translate(${this.addedX}px, ${this.addedY}px)`
         }

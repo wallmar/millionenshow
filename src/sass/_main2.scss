@@ -2,7 +2,7 @@
 
 .container {
   position: absolute;
-  top: 50vh;
+  top: 47vh;
   width: 100vw;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -35,7 +35,6 @@
 
     &:hover {
       filter: brightness(170%);
-      transition: all 0.3s ease;
     }
   }
 
@@ -118,7 +117,7 @@
   background-size: cover;
   background-position: center;
   color: #fff;
-  top: 50px;
+  top: 40px;
   right: 200px;
   user-select: none;
   border-radius: 30px;
@@ -148,7 +147,7 @@
   background-size: cover;
   background-position: center;
   color: #fff;
-  top: 50px;
+  top: 40px;
   left: 200px;
   display: flex;
   flex-direction: column;
@@ -185,7 +184,7 @@
   background-size: cover;
   background-position: center;
   color: #fff;
-  top: 30px;
+  top: 20px;
   left: calc(50vw - 150px);
   background-image: url("../images/background.webp");
   padding: 1rem;
