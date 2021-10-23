@@ -13,6 +13,7 @@ export default class Game {
         this.updateRanking()
         this.registerJokers()
         this.mouseAvoider = new MouseAvoiderPro()
+        this.clickListenerBind = null
     }
 
     /**
@@ -37,11 +38,20 @@ export default class Game {
         return this.currentRound === this.gameConfig.length - 1
     }
 
+    showQuestion() {
+        document.querySelectorAll('.box__question__text')[0].innerHTML = this.getCurrentRound().question
+        const question = document.querySelectorAll('.box__question')[0]
+        question.removeEventListener('click', this.clickListenerBind)
+        this.clickListenerBind = this.round.bind(this)
+        question.addEventListener('click', this.clickListenerBind)
+    }
+
     round() {
         setTimeout(() => this.updateRanking(), 2000)
 
         const answerNodes = document.querySelectorAll('.box__answer')
         document.querySelectorAll('.box__question__text')[0].innerHTML = this.getCurrentRound().question
+        document.querySelectorAll('.box__question')[0].removeEventListener('click', this.clickListenerBind)
 
         // last question
         if (this.isLastRound()) {
@@ -103,7 +113,8 @@ export default class Game {
                 this.cleanup()
                 setTimeout(() => {
                     document.querySelectorAll('.container')[0].classList.remove('container--faded')
-                    this.round()
+                    this.clickListenerBind = this.showQuestion.bind(this);
+                    document.querySelectorAll('.box__question')[0].addEventListener('click', this.clickListenerBind)
                 }, 2000)
             }
         })
