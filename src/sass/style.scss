@@ -33,8 +33,9 @@
 }
 
 html {
-  background: url("../images/background.jpg");
+  background-image: url("../images/background.jpg");
   background-size: cover;
+  background-position: center;
   //background: #000;
   overflow: hidden;
   cursor: url('../images/oth561.cur'), auto;
