@@ -20,8 +20,12 @@ export default class Game {
     init() {
         setTimeout(() => this.updateRanking(), 2000)
         this.disableJokers()
-        this.clickListenerBind = this.showQuestion.bind(this);
-        document.querySelectorAll('.box__question')[0].addEventListener('click', this.clickListenerBind)
+        this.clickListenerBind = (event) => {
+            if (event.code === 'Space') {
+                this.showQuestion();
+            }
+        }
+        document.addEventListener('keyup', this.clickListenerBind)
     }
 
     /**
@@ -59,16 +63,20 @@ export default class Game {
         this.audioManager.setAudioLevel(this.getCurrentRound().audioLevel)
         this.audioManager.playIntro()
         document.querySelectorAll('.box__question__text')[0].innerHTML = this.getCurrentRound().question
-        const question = document.querySelectorAll('.box__question')[0]
-        question.removeEventListener('click', this.clickListenerBind)
+        document.removeEventListener('keyup', this.clickListenerBind)
+        this.clickListenerBind = (event) => {
+            if (event.code === 'Space') {
+                this.round()
+            }
+        }
         this.clickListenerBind = this.round.bind(this)
-        question.addEventListener('click', this.clickListenerBind)
+        document.addEventListener('keyup', this.clickListenerBind)
     }
 
     round() {
         const answerNodes = document.querySelectorAll('.box__answer')
         document.querySelectorAll('.box__question__text')[0].innerHTML = this.getCurrentRound().question
-        document.querySelectorAll('.box__question')[0].removeEventListener('click', this.clickListenerBind)
+        document.removeEventListener('keyup', this.clickListenerBind)
         this.enableJokers()
 
         // last question
