@@ -39,6 +39,9 @@ export default class Game {
     }
 
     showQuestion() {
+        setTimeout(() => this.updateRanking(), 2000)
+        this.audioManager.setAudioLevel(this.getCurrentRound().audioLevel)
+        this.audioManager.playIntro()
         document.querySelectorAll('.box__question__text')[0].innerHTML = this.getCurrentRound().question
         const question = document.querySelectorAll('.box__question')[0]
         question.removeEventListener('click', this.clickListenerBind)
@@ -47,11 +50,10 @@ export default class Game {
     }
 
     round() {
-        setTimeout(() => this.updateRanking(), 2000)
-
         const answerNodes = document.querySelectorAll('.box__answer')
         document.querySelectorAll('.box__question__text')[0].innerHTML = this.getCurrentRound().question
         document.querySelectorAll('.box__question')[0].removeEventListener('click', this.clickListenerBind)
+        this.enableJokers()
 
         // last question
         if (this.isLastRound()) {
@@ -67,12 +69,13 @@ export default class Game {
             document.onmousemove = ((e) => this.mouseAvoider.perform(e, this.getRightAnswerNode()))
         }
         else {
-            this.audioManager.setAudioLevel(this.getCurrentRound().audioLevel)
-            this.audioManager.playIntro()
+            this.audioManager.playBasic()
         }
 
         answerNodes.forEach((answerNode, key) => {
             const answer = this.getCurrentRound().answers[key]
+            answerNode.classList.add('box--unselected')
+            answerNode.classList.remove('box--disabled')
 
             answerNode.getElementsByClassName('box__option__text')[0].innerHTML = answer.text
 
@@ -82,6 +85,7 @@ export default class Game {
                     if (!this.isLastRound() || answerNode !== this.getRightAnswerNode()) {
                         answerNode.classList.add('box--selected')
                         answerNode.classList.remove('box--unselected')
+                        this.disableJokers()
                         this.selectedAnswer = answer
 
                         this.audioManager.playSelected()
@@ -150,8 +154,8 @@ export default class Game {
         this.currentRound++
 
         answerNodes.forEach(answerNode => {
-            answerNode.classList.remove('box--correct', 'box--selected', 'box--disabled')
-            answerNode.classList.add('box--unselected')
+            answerNode.classList.remove('box--correct', 'box--selected')
+            answerNode.classList.add('box--disabled')
             answerNode.getElementsByClassName('box__option')[0].classList.remove('box__option--correct')
             answerNode.getElementsByClassName('box__option__text')[0].innerHTML = ''
         })
@@ -202,7 +206,7 @@ export default class Game {
 
             if (jokerType === '50-50') {
                 joker.addEventListener('click', () => {
-                    if (!joker.classList.contains('joker__image--inactive')) {
+                    if (!joker.classList.contains('joker__image--inactive') && !joker.classList.contains('joker__image--disabled')) {
                         this.handle5050Joker()
                         joker.classList.add('joker__image--inactive')
                     }
@@ -210,7 +214,7 @@ export default class Game {
             }
             else if (jokerType === 'audience') {
                 joker.addEventListener('click', () => {
-                    if (!joker.classList.contains('joker__image--inactive')) {
+                    if (!joker.classList.contains('joker__image--inactive') && !joker.classList.contains('joker__image--disabled')) {
                         this.handleAudienceJoker()
                         joker.classList.add('joker__image--inactive')
                     }
@@ -223,8 +227,15 @@ export default class Game {
         const jokers = document.querySelectorAll('.joker__image')
 
         jokers.forEach(joker => {
-            joker.classList.add('joker__image--inactive')
-            joker.classList.add('joker__image--inactive')
+            joker.classList.add('joker__image--disabled')
+        })
+    }
+
+    enableJokers() {
+        const jokers = document.querySelectorAll('.joker__image')
+
+        jokers.forEach(joker => {
+            joker.classList.remove('joker__image--disabled')
         })
     }
 }

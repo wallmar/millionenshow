@@ -171,7 +171,15 @@
 
       &:hover {
         cursor: inherit;
-        filter: brightness(20%);
+        filter: brightness(20%) !important;
+      }
+    }
+
+    &--disabled {
+
+      &:hover {
+        cursor: inherit;
+        filter: brightness(100%);
       }
     }
   }

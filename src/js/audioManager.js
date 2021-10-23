@@ -26,27 +26,32 @@ export default class AudioManager {
         //audio.volume = 0.5
     }
 
+    resetListener() {
+        this.audioNode.onended = null
+    }
+
     setAudioLevel(audioLevel) {
         this.audioLevel = audioLevel
     }
 
     playIntro() {
+        this.resetListener()
         this.setAudioSrc('intro.mp3')
-        this.audioNode.onended = () => {
-            this.playBasic()
-        }
     }
 
     playBasic() {
+        this.resetListener()
         this.setAudioSrc('basic.mp3', true)
     }
 
     playSelected() {
+        this.resetListener()
         this.setAudioSrc('selected.mp3')
         clearInterval(this.intervalId)
     }
 
     playCorrect() {
+        this.resetListener()
         this.setAudioSrc('correct.mp3')
         this.audioNode.onended = () => {
             document.dispatchEvent(this.event)
@@ -54,6 +59,7 @@ export default class AudioManager {
     }
 
     playFailure() {
+        this.resetListener()
         this.setAudioSrc('failure.mp3')
         this.audioNode.onended = () => {
             document.dispatchEvent(this.event)
@@ -61,6 +67,7 @@ export default class AudioManager {
     }
 
     play5050JokerUsed() {
+        this.resetListener()
         this.setAudioSrc('50-50.mp3', false, true)
         this.audioNode.onended = () => {
             this.playBasic()
@@ -68,6 +75,7 @@ export default class AudioManager {
     }
 
     playAudienceJokerUsed() {
+        this.resetListener()
         this.setAudioSrc('audience.mp3', false, true)
         setInterval(() => {
             const timeRanges = this.audioNode.played
@@ -83,6 +91,7 @@ export default class AudioManager {
     }
 
     startCountdown() {
+        this.resetListener()
         this.setAudioSrc('countdown.mp3', false, true)
 
         const node = document.querySelectorAll('.countdown')[0]
