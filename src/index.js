@@ -9,7 +9,7 @@ import Chart from 'chart.js/auto';
 
 window.addEventListener('DOMContentLoaded', () => {
     const game = new Game(gameConfig)
-    game.round()
+    game.init()
 
     Chart.defaults.font.size = 16
     Chart.defaults.color = '#fff'

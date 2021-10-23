@@ -16,6 +16,13 @@ export default class Game {
         this.clickListenerBind = null
     }
 
+    init() {
+        setTimeout(() => this.updateRanking(), 2000)
+        this.disableJokers()
+        this.clickListenerBind = this.showQuestion.bind(this);
+        document.querySelectorAll('.box__question')[0].addEventListener('click', this.clickListenerBind)
+    }
+
     /**
      * @return {{question: string, audioLevel: number, answers:[{text:string,correct:bool,disappears:bool}]}}
      */
@@ -39,7 +46,6 @@ export default class Game {
     }
 
     showQuestion() {
-        setTimeout(() => this.updateRanking(), 2000)
         this.audioManager.setAudioLevel(this.getCurrentRound().audioLevel)
         this.audioManager.playIntro()
         document.querySelectorAll('.box__question__text')[0].innerHTML = this.getCurrentRound().question
@@ -117,8 +123,7 @@ export default class Game {
                 this.cleanup()
                 setTimeout(() => {
                     document.querySelectorAll('.container')[0].classList.remove('container--faded')
-                    this.clickListenerBind = this.showQuestion.bind(this);
-                    document.querySelectorAll('.box__question')[0].addEventListener('click', this.clickListenerBind)
+                    this.init()
                 }, 2000)
             }
         })
