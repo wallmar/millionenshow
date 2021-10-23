@@ -1,33 +1,163 @@
 [
   {
-    "question": "Was ist die Hauptstadt von Österreich?",
+    "question": "Wie heißt die Serie?",
     "audioLevel": 0,
     "answers": [
       {
-        "text": "Graz",
+        "text": "Die Geissens",
         "correct": false,
         "disappears": false
       },
       {
-        "text": "Wien",
+        "text": "Denver Clan",
         "correct": true,
         "disappears": false
       },
       {
-        "text": "Grazer Innenstadt",
+        "text": "Fluch der Karibik",
         "correct": false,
         "disappears": true
       },
       {
-        "text": "Tirol",
+        "text": "Shrek",
         "correct": false,
         "disappears": true
       }
     ]
   },
   {
-    "question": "Wenn ein Dieb pro Sekunde eine Kombination schafft, braucht ein Dieb zum Öffnen eines Zahlenschlosses mit vierstelligem Code maximal…?",
+    "question": "500 Schilling sind ...",
+    "audioLevel": 1,
+    "answers": [
+      {
+        "text": "42,31 USD",
+        "correct": true,
+        "disappears": false
+      },
+      {
+        "text": "45,22 USD",
+        "correct": false,
+        "disappears": true
+      },
+      {
+        "text": "43,16 USD",
+        "correct": false,
+        "disappears": false
+      },
+      {
+        "text": "44,89 USD",
+        "correct": false,
+        "disappears": true
+      }
+    ]
+  },
+  {
+    "question": "Die Kastristn befindet sich auf ... über dem Meeresspiegel",
+    "audioLevel": 1,
+    "answers": [
+      {
+        "text": "8850 m",
+        "correct": false,
+        "disappears": true
+      },
+      {
+        "text": "-3 m",
+        "correct": false,
+        "disappears": true
+      },
+      {
+        "text": "1327 m",
+        "correct": false,
+        "disappears": false
+      },
+      {
+        "text": "1167 m",
+        "correct": true,
+        "disappears": false
+      }
+    ]
+  },
+  {
+    "question": "Welche Farbe hat eine handelsübliche Orange in Österreich?",
     "audioLevel": 2,
+    "answers": [
+      {
+        "text": "Krapporange",
+        "correct": false,
+        "disappears": true
+      },
+      {
+        "text": "Rotorange",
+        "correct": false,
+        "disappears": true
+      },
+      {
+        "text": "Scharlachorange",
+        "correct": true,
+        "disappears": false
+      },
+      {
+        "text": "Sommerorange",
+        "correct": true,
+        "disappears": false
+      }
+    ]
+  },
+  {
+    "question": "Wie viele Federn schmücken das Federkleid eines solchen Spatzens (vor der Mauser)?",
+    "audioLevel": 3,
+    "answers": [
+      {
+        "text": "rund 3200",
+        "correct": true,
+        "disappears": false
+      },
+      {
+        "text": "in etwa 800",
+        "correct": false,
+        "disappears": true
+      },
+      {
+        "text": "gut 5000",
+        "correct": false,
+        "disappears": true
+      },
+      {
+        "text": "ungefähr 4800",
+        "correct": false,
+        "disappears": false
+      }
+    ]
+  },
+  {
+    "question": "Some People got the real problem, some people out of luck, some people think I can solve them, Lord heavens above…",
+    "audioLevel": 3,
+    "answers": [
+      {
+        "text": "RAF Camora – 500PS",
+        "correct": false,
+        "disappears": true
+      },
+      {
+        "text": "Rag´n´Bone Man – Human",
+        "correct": true,
+        "disappears": false
+      },
+      {
+        "text": "Dschingis Khan – Himalaya",
+        "correct": false,
+        "disappears": true
+      },
+      {
+        "text": "Ed Sheeran – Galway Girl",
+        "correct": false,
+        "disappears": false
+      }
+    ]
+  },
+  {
+    "question": "Wenn ein Dieb pro Sekunde eine Kombination schafft, braucht ein Dieb zum Öffnen eines Zahlenschlosses mit vierstelligem Code maximal…?",
+    "audioLevel": 4,
     "answers": [
       {
         "text": "knapp 170 Minuten",
@@ -52,26 +182,78 @@
     ]
   },
   {
-    "question": "Seit jeher haben die meisten ...?",
+    "question": "Was ist kein Nachbarstaat von Österreich?",
     "audioLevel": 5,
     "answers": [
       {
-        "text": "Dober Männer",
+        "text": "Slowenien",
         "correct": false,
         "disappears": true
       },
       {
-        "text": "Cocker Spaniels",
-        "correct": false,
-        "disappears": true
-      },
-      {
-        "text": "Riesen Schnauzer",
+        "text": "Schweiz",
         "correct": false,
         "disappears": false
       },
       {
-        "text": "Schäfer Hunde",
+        "text": "Simbabwe",
+        "correct": true,
+        "disappears": false
+      },
+      {
+        "text": "Ungarn",
+        "correct": false,
+        "disappears": true
+      }
+    ]
+  },
+  {
+    "question": "Was ist die Hauptstadt von Österreich?",
+    "audioLevel": 5,
+    "answers": [
+      {
+        "text": "Wien",
+        "correct": true,
+        "disappears": false
+      },
+      {
+        "text": "Graz",
+        "correct": false,
+        "disappears": true
+      },
+      {
+        "text": "Grazer Innenstadt",
+        "correct": false,
+        "disappears": true
+      },
+      {
+        "text": "Türkei",
+        "correct": false,
+        "disappears": false
+      }
+    ]
+  },
+  {
+    "question": "Welches dieser Täler liegt NICHT in Tirol?",
+    "audioLevel": 5,
+    "answers": [
+      {
+        "text": "Zillertal",
+        "correct": false,
+        "disappears": true
+      },
+      {
+        "text": "Ötztal",
+        "correct": false,
+        "disappears": true
+      },
+      {
+        "text": "Pitztal",
+        "correct": false,
+        "disappears": false
+      },
+      {
+        "text": "Ennstal",
         "correct": true,
         "disappears": false
       }

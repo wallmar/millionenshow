@@ -14,6 +14,7 @@ export default class Game {
         this.registerJokers()
         this.mouseAvoider = new MouseAvoiderPro()
         this.clickListenerBind = null
+        this.cleanedUp = false
     }
 
     init() {
@@ -27,22 +28,31 @@ export default class Game {
      * @return {{question: string, audioLevel: number, answers:[{text:string,correct:bool,disappears:bool}]}}
      */
     getCurrentRound() {
+        if (this.isLastRound()) {
+            return this.gameConfig[this.gameConfig.length - 1]
+        }
         return this.gameConfig[this.currentRound]
     }
 
-    getRightAnswerNode() {
+    getRightAnswerNode(avoidKey = 0) {
         const answerNodes = document.querySelectorAll('.box__answer')
         let rightAnswerNode = null
+        let rightAnswerNodeAvoided = null
         answerNodes.forEach((answerNode, key) => {
             if (this.getCurrentRound().answers[key].correct) {
-                rightAnswerNode = answerNode
+                if (key === avoidKey) {
+                    rightAnswerNodeAvoided = answerNode
+                }
+                else {
+                    rightAnswerNode = answerNode
+                }
             }
         })
-        return rightAnswerNode
+        return rightAnswerNode ? rightAnswerNode : rightAnswerNodeAvoided
     }
 
     isLastRound() {
-        return this.currentRound === this.gameConfig.length - 1
+        return this.currentRank === document.querySelectorAll('.ranking__entry').length - 1
     }
 
     showQuestion() {
@@ -109,12 +119,14 @@ export default class Game {
     }
 
     checkAnswer(key, forceWrong = false) {
-        const rightAnswerNode = this.getRightAnswerNode()
+        const rightAnswerNode = this.getRightAnswerNode(key)
 
         const interval = setInterval(() => {
             rightAnswerNode.classList.toggle('box--correct')
             rightAnswerNode.getElementsByClassName('box__option')[0].classList.toggle('box__option--correct')
         }, 250)
+
+        this.cleanedUp = false
 
         document.addEventListener('audioFinished', () => {
             clearInterval(interval)
@@ -122,8 +134,12 @@ export default class Game {
             if (this.gameConfig.length > this.currentRound + 1) {
                 this.cleanup()
                 setTimeout(() => {
-                    document.querySelectorAll('.container')[0].classList.remove('container--faded')
-                    this.init()
+                    if (!this.cleanedUp) {
+                        this.currentRound++
+                        this.cleanedUp = true
+                        document.querySelectorAll('.container')[0].classList.remove('container--faded')
+                        this.init()
+                    }
                 }, 2000)
             }
         })
@@ -141,7 +157,8 @@ export default class Game {
         bug beheben, wo musik bei erster runde nicht startet
          */
 
-        if (this.getCurrentRound().answers[key].correct && !forceWrong) {
+        if (rightAnswerNode.getElementsByClassName('box__option__text')[0].innerHTML === this.getCurrentRound().answers[key].text
+            && !forceWrong) {
             this.audioManager.playCorrect()
             this.currentRank++;
         }
@@ -156,7 +173,6 @@ export default class Game {
         document.querySelectorAll('.container')[0].classList.add('container--faded')
         document.querySelectorAll('.audience')[0].classList.add('audience--disabled')
         this.selectedAnswer = null
-        this.currentRound++
 
         answerNodes.forEach(answerNode => {
             answerNode.classList.remove('box--correct', 'box--selected')
