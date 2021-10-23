@@ -182,7 +182,33 @@
     ]
   },
   {
-    "question": "Was ist kein Nachbarstaat von Österreich?",
+    "question": "Seit jeher haben die meisten ...?",
+    "audioLevel": 5,
+    "answers": [
+      {
+        "text": "Dober Männer",
+        "correct": false,
+        "disappears": true
+      },
+      {
+        "text": "Cocker Spaniels",
+        "correct": false,
+        "disappears": true
+      },
+      {
+        "text": "Schäfer Hunde",
+        "correct": true,
+        "disappears": false
+      },
+      {
+        "text": "Riesen Schnauzer",
+        "correct": false,
+        "disappears": false
+      }
+    ]
+  },
+  {
+    "question": "Was ist KEIN Nachbarstaat von Österreich?",
     "audioLevel": 5,
     "answers": [
       {
