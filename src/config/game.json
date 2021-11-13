@@ -300,6 +300,31 @@
     ]
   },
   {
+    "question": "In welchem Bundesland liegt Bad Gastein?",
+    "answers": [
+      {
+        "text": "Tirol",
+        "correct": false,
+        "disappears": false
+      },
+      {
+        "text": "Steiermark",
+        "correct": false,
+        "disappears": true
+      },
+      {
+        "text": "Salzburg",
+        "correct": true,
+        "disappears": false
+      },
+      {
+        "text": "Gries im Pinzgau",
+        "correct": false,
+        "disappears": true
+      }
+    ]
+  },
+  {
     "question": "Welches dieser Täler liegt NICHT in Tirol?",
     "answers": [
       {
