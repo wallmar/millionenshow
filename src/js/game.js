@@ -1,5 +1,6 @@
 import AudioManager from "./audioManager";
 import MouseAvoiderPro from "./mouseAvoiderPro";
+import VideoManager from "./videoManager";
 import Loader from '../js/loader'
 
 export default class Game {
@@ -13,6 +14,7 @@ export default class Game {
         this.updateRanking()
         this.registerJokers()
         this.mouseAvoider = new MouseAvoiderPro()
+        this.videoManager = new VideoManager()
         this.clickListenerBind = null
         this.cleanedUp = false
         this.isOver = false
@@ -23,7 +25,18 @@ export default class Game {
         this.disableJokers()
         this.clickListenerBind = (event) => {
             if (event.code === 'Space') {
-                this.showQuestion();
+                if (this.videoManager.isPlaying()) {
+                    this.videoManager.removeVideo()
+                    this.showQuestion()
+                }
+                else {
+                    if (this.isLastRound()) {
+                        this.videoManager.displayVideo()
+                    }
+                    else {
+                        this.showQuestion()
+                    }
+                }
             }
         }
         document.addEventListener('keyup', this.clickListenerBind)

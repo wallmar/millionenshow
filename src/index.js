@@ -4,6 +4,7 @@ import Game from './js/game'
 
 require.context('./images', true, /\.(jpg|webp|png|cur)$/);
 require.context('./audio', true, /\.(mp3)$/);
+require.context('./video', true, /\.(mp4)$/);
 
 import Chart from 'chart.js/auto';
 
