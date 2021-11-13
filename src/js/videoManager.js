@@ -7,6 +7,7 @@ export default class VideoManager {
         this.videoNode.innerHTML = "<source src=\"video/hotel.mp4\" type=\"video/mp4\">"
         this.videoNode.classList.add("video--enabled")
         this.videoNode.setAttribute('autoplay', 'true')
+        this.videoNode.setAttribute('loop', 'true')
         this.videoNode.volume = 0.1
     }
 
