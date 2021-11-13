@@ -250,6 +250,56 @@
     ]
   },
   {
+    "question": "Was ist die Hauptstadt von Deutschland?",
+    "answers": [
+      {
+        "text": "Berlin",
+        "correct": true,
+        "disappears": false
+      },
+      {
+        "text": "Graz",
+        "correct": false,
+        "disappears": true
+      },
+      {
+        "text": "Grazer Innenstadt",
+        "correct": false,
+        "disappears": true
+      },
+      {
+        "text": "Türkei",
+        "correct": false,
+        "disappears": false
+      }
+    ]
+  },
+  {
+    "question": "In welchem Bundesland liegt Bad Hofgastein?",
+    "answers": [
+      {
+        "text": "Tirol",
+        "correct": false,
+        "disappears": false
+      },
+      {
+        "text": "Steiermark",
+        "correct": false,
+        "disappears": true
+      },
+      {
+        "text": "Salzburg",
+        "correct": true,
+        "disappears": false
+      },
+      {
+        "text": "Gries im Pinzgau",
+        "correct": false,
+        "disappears": true
+      }
+    ]
+  },
+  {
     "question": "Welches dieser Täler liegt NICHT in Tirol?",
     "answers": [
       {
