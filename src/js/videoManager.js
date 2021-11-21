@@ -8,7 +8,7 @@ export default class VideoManager {
         this.videoNode.classList.add("video--enabled")
         this.videoNode.setAttribute('autoplay', 'true')
         this.videoNode.setAttribute('loop', 'true')
-        this.videoNode.volume = 0.1
+        this.videoNode.volume = 0.05
     }
 
     removeVideo() {
