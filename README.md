@@ -1,5 +1,5 @@
 # Millionenshow
-A project from Markus Wallner
+A funny quizapp designed for a birthday party
 
 ## Commands
 * `npm install` to install all dependencies
