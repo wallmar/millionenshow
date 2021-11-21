@@ -1,7 +1,7 @@
 {
-  "name": "cms",
+  "name": "millionenshow",
   "version": "1.0.0",
-  "description": "* [W3C Validator](https://validator.w3.org/#validate_by_upload)",
+  "description": "A funny quizapp designed for a birthday party",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wallmar/groyerhof.git"
+    "url": "git+https://github.com/wallmar/millionenshow.git"
   },
   "author": "Markus Wallner",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/wallmar/groyerhof/issues"
+    "url": "https://github.com/wallmar/millionenshow/issues"
   },
-  "homepage": "https://github.com/wallmar/groyerhof#readme",
+  "homepage": "https://github.com/wallmar/millionenshow#readme",
   "devDependencies": {
     "css-loader": "^3.2.0",
     "favicons-webpack-plugin": "^4.2.0",
