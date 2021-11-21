@@ -22,8 +22,6 @@ export default class AudioManager {
         else {
             this.audioNode.removeAttribute('loop')
         }
-
-        //audio.volume = 0.5
     }
 
     resetListener() {
@@ -31,7 +29,7 @@ export default class AudioManager {
     }
 
     setAudioLevel(audioLevel) {
-        this.audioLevel = audioLevel
+        this.audioLevel = Math.min(audioLevel, 5)
     }
 
     playIntro() {
