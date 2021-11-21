@@ -1,5 +1,5 @@
 # Millionenshow
-A funny quizapp designed for a birthday party
+A funny quizapp designed for a birthday party based on JavaScript
 
 ## Commands
 * `npm install` to install all dependencies
